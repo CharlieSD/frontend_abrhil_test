@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+
+  frontend:
+    build: contactos
+    ports: 
+      - 3000:3000
+    volumes:
+      - build_folder:/frontend/build
+
+volumes:
+  build_folder:
