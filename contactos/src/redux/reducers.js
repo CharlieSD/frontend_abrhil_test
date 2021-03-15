@@ -12,7 +12,7 @@ const contactoReducer = (state = initialState, action) => {
         }
 
         case Types.GET_CONTACTOS: {
-            return {...state,posts: action.payload};
+            return {...state, contactos: action.payload};
         }
 
         case Types.DELETE_CONTACTO: {

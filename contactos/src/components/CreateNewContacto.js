@@ -42,13 +42,24 @@ class CreateNewContacto extends React.Component {
                 onFinish={this.onFinish.bind(this)}
                 validateMessages={validateMessages}>
 
-                <Form.Item name='title' label="Title" rules={[{required: true}]}>
+                <Form.Item name='first_name' label="Nombre" rules={[{required: true}]}>
                     <Input/>
                 </Form.Item>
 
+                <Form.Item name='last_name' label="Apellido" rules={[{required: true}]}>
+                    <Input/>
+                </Form.Item>
 
-                <Form.Item name='content' label="Content" rules={[{required: true}]}>
-                    <Input.TextArea/>
+                <Form.Item name='phone' label="Telefono" rules={[{required: true}]}>
+                    <Input/>
+                </Form.Item>
+
+                <Form.Item name='email' label="Email" rules={[{required: true}]}>
+                    <Input/>
+                </Form.Item>
+
+                <Form.Item name='photo' label="URL Imagen" rules={[{required: true}]}>
+                    <Input/>
                 </Form.Item>
 
                 <Form.Item wrapperCol={{...layout.wrapperCol}}>

@@ -30,14 +30,17 @@ class ListContactos extends React.Component{
                     <Row gutter={[48, 48]}>
                         <Col span={24}>
                             <Card
-                                key={p.id}
-                                title={p.title}
+                                key={p.uuid}
+                                title={p.first_name}
                                 style={{width: '100%'}}
                                 actions={[
-                                    <DeleteOutlined key="delete" onClick={()=>this.deleteContacto(p.id)} />,
+                                    <DeleteOutlined key="delete" onClick={()=>this.deleteContacto(p.uuid)} />,
                                 ]}
                             >
-                                <p>{p.content}</p>
+                                <p>{p.last_name}</p>
+                                <p>{p.email}</p>
+                                <p>{p.phone}</p>
+                                <p>{p.photo}</p>
                             </Card>
                         </Col>
                     </Row>

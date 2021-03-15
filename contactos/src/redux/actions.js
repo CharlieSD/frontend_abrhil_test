@@ -33,8 +33,9 @@ export const deleteContacto = (id,cb) => {
     }
 }
 
-export const createContacto = (data,cb) => {
+export const createContacto = (data, cb) => {
     return dispatch => {
+        console.log(data)
         axios.post(`${process.env.REACT_APP_HOST_IP_ADDRESS}/contactos`, data)
             .then(response => {
                     console.log(response)
