@@ -15,8 +15,13 @@ const contactoReducer = (state = initialState, action) => {
             return {...state, contactos: action.payload};
         }
 
+        case Types.GET_CONTACTO: {
+            console.log("get contacto");
+            return {...state, contactos: action.payload};
+        }
+
         case Types.DELETE_CONTACTO: {
-            return {...state, contacto: state.posts.filter(contacto => contacto.id !== action.payload)}
+            return {...state, contacto: state.contactos.filter(contacto => contacto.id !== action.payload)}
         }
         default:
             return state;

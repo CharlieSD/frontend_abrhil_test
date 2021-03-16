@@ -17,6 +17,23 @@ export const getContactos = () => {
     }
 }
 
+export const getContacto = (id) => {
+    return dispatch => {
+        dispatch({type:Types.CONTACTOS_LOADING, payload:true})
+        axios.get(`${process.env.REACT_APP_HOST_IP_ADDRESS}/contactos/${id}/`)
+            .then(response => {
+                console.log(response.data)
+                    dispatch({type:Types.GET_CONTACTO, payload:id})
+                }
+            )
+            .catch(err => {
+                    console.log(err)
+                    dispatch({type:Types.CONTACTOS_LOADING, payload:false})
+                }
+            );
+    }
+}
+
 export const deleteContacto = (id,cb) => {
     return dispatch => {
         dispatch({type:Types.CONTACTOS_LOADING, payload:true})

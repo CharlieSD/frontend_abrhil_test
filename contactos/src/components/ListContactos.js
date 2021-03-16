@@ -1,8 +1,8 @@
 import React from "react";
 import {connect} from 'react-redux'
-import {getContactos,deleteContacto} from '../redux/actions.js'
+import {getContactos, deleteContacto, getContacto} from '../redux/actions.js'
 import {Card, Row, Col, message } from 'antd';
-import { DeleteOutlined } from '@ant-design/icons';
+import { DeleteOutlined, UploadOutlined } from '@ant-design/icons';
 import "antd/dist/antd.css";
 
 
@@ -14,6 +14,10 @@ class ListContactos extends React.Component{
 
     deleteContacto = (id) => {
         this.props.deleteContacto(id, this.info);
+    }
+
+    getContacto = (id) => {
+        this.props.getContacto(id);
     }
 
     info() {
@@ -32,9 +36,10 @@ class ListContactos extends React.Component{
                             <Card
                                 key={p.uuid}
                                 title={p.first_name}
-                                style={{width: '100%'}}
+                                style={{width: '80%'}}
                                 actions={[
                                     <DeleteOutlined key="delete" onClick={()=>this.deleteContacto(p.uuid)} />,
+                                    <UploadOutlined key="update" onClick={()=>this.getContacto(p.uuid)} />,
                                 ]}
                             >
                                 <p>{p.last_name}</p>
@@ -55,7 +60,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    getContactos, deleteContacto
+    getContactos, deleteContacto, getContacto,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListContactos)
